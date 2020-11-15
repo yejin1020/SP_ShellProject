@@ -60,6 +60,16 @@ int main()
                   cmd++;
         }
    }
- argv[narg] = NULL;
- return narg;
+    
+     if(strcmp("exit", argv[0]) == 0){ 
+     printf("\n SHELL EXIT \n");
+     exit(1);
+     } // EXIT  
+  
+     if(strcmp("cd", argv[0]) == 0){
+     file_chdir(narg, argv);
+     } // cd
+ 
+    argv[narg] = NULL;
+    return narg;
  }

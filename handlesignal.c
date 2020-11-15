@@ -4,13 +4,13 @@
 #include <signal.h>
 
 void handler_int(int signo){
-    printf("SIGINT START\n");
+    printf("\nSIGINT START\n");
     pid_t ppid = getppid();
     kill(ppid, SIGINT);
 }
 
 void handler_quit(int signo){
-    printf("SIGQUIT START\n");
+    printf("\nSIGQUIT START\n");
     pid_t ppid = getppid();
     kill(ppid, SIGQUIT);
 }

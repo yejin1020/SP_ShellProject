@@ -2,22 +2,25 @@
 #include "simplesh.h"
 #include "header.h"
 #include <signal.h>
- #include <fcntl.h>
+#include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 
 int main()
 {
    char buf[256];
-    char *argv[50];
-    int narg;
-    pid_t pid;
-
+   char *argv[50];
+   int narg;   
+   pid_t pid;
+    
     while (1) {
         getcwd(pwd,BUF_SIZE);
         printf("%s$ ", pwd);
         gets(buf);
-       narg = getargs(buf, argv);
+        narg = getargs(buf, argv);
+     
+        sig_int();
+        sig_quit();
  
         pid = fork();
         
@@ -27,7 +30,7 @@ int main()
              if(execvp(argv[0], argv) == -1)
                printf("%s: wrong command\n",argv[0]);
              else{
-                printf("process is background\n");
+               printf("process is background\n");
                execvp(argv[0], argv);
                 }
                exit(1);
@@ -47,14 +50,13 @@ int main()
              if (*cmd == ' ' || *cmd == '\t' || *cmd == '&')
              *cmd++ = '\0';
  
-           // background 
+           // 명령의 마지막에 & 문자를 입력할 경우 백그라운드로 실행
           if (*cmd == '&')
              BACKGROUND = 1;
  
         else {
               argv[narg++] = cmd++;
-                while (*cmd != '\0' && *cmd != ' '
- && *cmd != '\t')
+                while (*cmd != '\0' && *cmd != ' ' && *cmd != '\t')
                   cmd++;
         }
    }

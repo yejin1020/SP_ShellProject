@@ -8,10 +8,10 @@
 
 
 [num11 파일 쉘 실핼방법]
-make clean
-make
-./minish
+ make clean
+ make
+ ./minish
 
 [다른 쉘 실행 방법]
-gcc -o simplesh file_chdir.c handlesignal.c simplesh.c
-./simplesh
+ gcc -o simplesh file_chdir.c handlesignal.c simplesh.c
+ ./simplesh

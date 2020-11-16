@@ -3,7 +3,6 @@
 #include <unistd.h>
 
 #define MAX_PATH 100
-//#define LF 10
 
 int print_prompt()
 {

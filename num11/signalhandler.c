@@ -1,6 +1,10 @@
 #include <signal.h>
 #include "command.h"
 
+//////////////////////////////////////////////////////
+// 자식 프로세스의 SIGINT, SIGQUIT의 차단을 해제 하는 함수
+//////////////////////////////////////////////////////
+
 void handler_int(int signo){
     printf("\nSIGINT ON\n");
     pid_t ppid = getppid();
@@ -24,9 +28,12 @@ void signal_quit(){
     struct sigaction sig_quit;
     sig_quit.sa_handler = handler_quit;
     sigfillset(&(sig_quit.sa_mask));
-    sigaction(SIGTSTP, &sig_quit, NULL);
+    sigaction(SIGQUIT, &sig_quit, NULL);
 }
 
+/////////////////////////////////////////////////
+// 부모 프로세스의 SIGINT, SIGQUIT를 차단하는 함수
+/////////////////////////////////////////////////
 void blocksignal()
 {
 	sigset_t set2;

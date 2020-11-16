@@ -52,13 +52,4 @@ void demon(char *cmd)
 
 	syslog(LOG_INFO, "This is daemon test process\n\n\n");
 }
-/*
-int main(int argc, char *argv[])
-{	
-	//printf("%s",argv[1]);
-	daemonize(argv[1]);
-	sleep(10);
-	syslog(LOG_INFO, "This is daemon test process");
-	sleep(100);
-}
-*/
+

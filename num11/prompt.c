@@ -17,14 +17,3 @@ int print_prompt()
 	
 	return 0;
 }
-/*
-int main()
-{
-	char c;
-	
-	while((c=getchar())!=EOF)		
-		if(c==LF)	
-			print_prompt();
-
-	return 0;
-}*/

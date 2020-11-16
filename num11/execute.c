@@ -62,7 +62,6 @@ int shellcmd(int argc, char *argv[])
 	else if ( !strcmp(argv[argc-1], "&") )
 	{
 			demon(argv[0]);
-			//flag = 2;
 	}
 	else if( !strcmp(argv[0], "sleep") )
 	{
@@ -83,16 +82,12 @@ int shellcmd(int argc, char *argv[])
 			flag = 0;
 	}
 	
-/*	
-	if (sourcefd != 0 || destfd != 1)
-	{
-		fprintf(stderr, "Ilegal redirection or pipeline.\n");
-	}
-*/
 	return flag;
 }
 
-
+/////////////////////////////////////////////////
+// 자식 프로세스에서 실행되는 함수 
+/////////////////////////////////////////////////
 void execute(int argc, char *argv[])
 {
 
@@ -101,12 +96,9 @@ void execute(int argc, char *argv[])
 		signal_int();
 		signal_quit();
 
-
-		//flag = shellcmd(argc, argv);
-
 		if( !shellcmd(argc, argv))
 		{
-			// 사용자 정의 명령이 아닌 경우 execvp 
+			// 사용자 정의 명령이 아닌 경우 
 			printf("no cmd function\n");
 			printf("ls, pwd, cd, mkdir, rmdir, ln, cp, rm, mv, cat\n");
 		}

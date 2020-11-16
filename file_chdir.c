@@ -2,7 +2,7 @@
 
 void file_chdir(int narg, char *argv[]){
   if(narg > 2){
-     printf("Too many argments\n");
+     printf("Too many arguments\n");
   }
   
   if(narg == 2){

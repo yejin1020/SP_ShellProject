@@ -103,6 +103,6 @@ void execute(int argc, char *argv[])
 			printf("ls, pwd, cd, mkdir, rmdir, ln, cp, rm, mv, cat\n");
 		}
 	
-	exit(1);
+	//exit(1);
 }
 
